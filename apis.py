@@ -13,6 +13,9 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 # the get, post methods correspond to get and post requests 
 # they are automatically mapped by flask_restful. 
 # other methods include put, delete, etc. 
+''' 
+"inputs": "content"
+'''
 class T5_small(Resource):
    def post(self):  
     API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
