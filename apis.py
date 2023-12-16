@@ -5,13 +5,10 @@ import requests
 
 headers = {"Authorization": "Bearer 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"}
 
-# creating the flask app
+# Creating the Flask app
 app = Flask(__name__)
-
-# creating an API object
 api = Api(app)
-# Allow all origins, adjust as needed
-CORS(app, resources={r"/": {"origins": "*"}})
+CORS(app)  # Enable CORS for all routes
 
 
 class T5_small(Resource):
@@ -50,12 +47,12 @@ class text_generation(Resource):
         return response.json()
 
 
-# adding the defined resources along with their corresponding urls
+# Adding the defined resources along with their corresponding URLs
 api.add_resource(T5_small, '/summarize')
 api.add_resource(qna, '/qna')
 api.add_resource(translate, '/translate')
 api.add_resource(text_generation, '/text_generation')
 
-# driver function
+# Driver function
 if __name__ == '__main__':
     app.run(debug=False)
