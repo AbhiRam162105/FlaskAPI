@@ -10,7 +10,7 @@ api = Api(app)
 CORS(app, resources={r"/": {"origins": "*"}})
 
 
-class T5_small(Resource):
+class T5_small(Resource):s
     @staticmethod
     def post():
         API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
